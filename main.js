@@ -140,7 +140,6 @@
 // do while - цикл з постумовою
 
 
-
 //FOR
 
 // for (ініціалізація; умова; інкремент (оновлення)) {
@@ -227,7 +226,6 @@
 // }
 
 
-
 // Пів ялинки
 // for(let i = 1; i <= 4; i++){
 //     let row = "";
@@ -262,56 +260,6 @@
 //***********
 
 
-
-
-
-
-
-// hw5.1
-// let result = ""
-// for (let i= 20; i <= 30; i += 0.5) {
-//     result += i + " ";
-// }
-// console.log(result);
-
-// hw5.2
-// for (let i = 10; i <= 100; i +=10) {
-//     console.log(`$${i} = ${i * 26} UAH`);
-// }
-
-// hw5.3
-// let n = prompt("Enter a number");
-// let i = 1;
-// while (i <= 100) {
-//    if(i ** 2 <= n) {
-//        console.log(`${i} (${i}² = ${i ** 2} <= ${n})`);
-//    }
-//     i++
-// }
-
-// hw5.4
-// let n = Number(prompt("Enter your number"));
-//
-// let isPrime = true;
-//
-// if (n && Number.isInteger(n) && n >= 2) {
-//     for (let i = 2; i < n; i++) {
-//         if (n % i === 0) {
-//             console.log(`Your number ${n} is a composite number because it's divisible by ${i}`);
-//             isPrime = false;
-//             break;
-//         }
-//     }
-//
-//     if (isPrime) {
-//         console.log(`Your number ${n} is a prime number.`);
-//     }
-// } else {
-//     console.log("Invalid input. Please enter an integer greater than or equal to 2.");
-// }
-
-
-
 //Practice
 // let result = "";
 // for(let i = 10; i <= 20; i++){
@@ -323,3 +271,105 @@
 // console.log(result);
 
 
+// let result = "";
+// let i = 10;
+// while (i <= 20) {
+//     result += i ** 2;
+//     result += (i < 20) ? ", " : ".";
+//     i++;
+// }
+// console.log(result);
+
+
+// let sum = 0
+// for(let i = 1; i <= 15; i++) {
+//     sum += i;
+// }
+// console.log("Сума всіх цілих чисел від 1 до 15:", sum);
+
+// let number = 1;
+// let result = 1;
+// while (number <= 4) {
+//     result *= number++
+// }
+// console.log("Добуток всіх цілих чисел від 1 до 4 складає " + result);
+
+
+// let result = 0;
+// count = 0;
+// for (let i = 1; i <= 500; i++) {
+//     result += i;
+//     count++;
+// }
+// console.log("Cереднє арифметичне всіх цілих чисел від 1 до 500 дорівнює", result / count);
+
+
+// let sum = 0;
+// let i = 30;
+// while (i <= 80) {
+//     sum += i;
+//     i += 2;
+// }
+// console.log(sum);
+
+//OR
+
+// let sum = 0;
+// let i = 30;
+// while (i <= 80) {
+//     if(i % 2 === 0) {
+//         sum += i;
+//     }
+//     i ++;
+//
+// }
+// console.log("Cума парних чисел у діапазоні від 30 до 80 =",sum);
+
+
+// let result = "";
+// for (let i = 100; i <= 200; i++) {
+//     if (i % 3 === 0) {
+//         result += i + " ";
+//     }
+// }
+// console.log(result);
+
+
+// for(let i = 2;i <= 10; i++){
+//     console.log("Таблиця множення для:", i);
+//     console.log();
+//
+//     for(let j = 1;j <= 10; j++){
+//         console.log(`${i} * ${j} = ${i * j}`);
+//     }
+//     console.log();
+// }
+
+//Ялинка
+// for(let i = 0; i <= 6; i++){
+//     let row = "";
+//
+//     for(let k = 0; k <= 6 - i; k++){
+//         row += " ";
+//     }
+//     for(let j = 0; j <= i * 2; j++){
+//         row += "*";
+//     }
+//     console.log(row);
+// }
+
+
+// let number = +prompt("Enter a number");
+//
+// if (number && number > 1 && Number.isInteger(number)) {
+//     let i = 2;
+//     while (i <= number) {
+//         if (number % i === 0) {
+//             console.log(`The first divisor of ${number} is ${i}`);
+//             break;
+//         }
+//         i++
+//     }
+// } else {
+//     console.log("Invalid input. Please enter an integer greater than 1.");
+// }
