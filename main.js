@@ -467,83 +467,20 @@
 
 //-------------------------------------------------------------------------
 
-//IIFE (Immediately Invoked Function Expression) — це функціональний вираз, який викликається одразу після оголошення
+//⁉️IIFE (Immediately Invoked Function Expression) — це функціональний вираз, який викликається одразу після оголошення
 
 // (function () {
 //     console.log("This is IIFE");
 // })();
 
 
-//hw7.1
-// function createSum() {
-//     let sum = 0;
-//     return function(number) {
-//         sum += number
-//         return sum
-//     }
-// }
-//
-// let sum = createSum()
-// console.log(sum(6));
-// console.log(sum(4));
-// console.log(sum(10));
-// console.log(sum(7));
-
-
-//hw7.2
-// function multiply(x) {
-//     return function(y) {
-//         return x * y;
-//     }
-// }
-// console.log(multiply(5)(2));
-
+//-------------------------------------------------------------------------
 
 //ТРЕБА ВИКЛЮЧИТИ:     null (cancel)     NaN (text)    " " ((рядок з пробілами  —  +" " → 0)    "" (порожній рядок  —  +"" → 0)
 
-//hw7.3
-// function getNumber() {
-//     let firstTry = prompt("Enter a number greater than 100").trim();   // ВИКЛЮЧАЄМО " " - порожній рядок з пробілами
-//
-//     if (firstTry && !isNaN(+firstTry)) {   // firstTry (перевірка на true або false) виключає "" = 0 (false)  null = false     // !isNaN(+firstTry) виключає NaN
-//         firstTry = +firstTry;
-//
-//         if (firstTry > 100) {
-//             console.log("Your entered number is " + firstTry);
-//         } else {
-//             let secondTry;
-//
-//             for (let i = 1; i <= 9; i++) {
-//                 secondTry = prompt("Please try again").trim();
-//
-//                 if (!secondTry || isNaN(+secondTry)) { // Якщо secondTry = null, "" (0) або NaN
-//                     console.log("Invalid input. Please enter a number.");
-//                     continue;
-//                 }
-//
-//                 secondTry = +secondTry;
-//
-//                 if (secondTry > 100) {
-//                     console.log("Your last entered number is " + secondTry);
-//                     break;
-//                 }
-//
-//                 if (i === 9) {
-//                     console.log("You've reached the limit of attempts. Last entered number is " + secondTry);
-//                 }
-//             }
-//         }
-//     } else {
-//         console.log("Operation was canceled or invalid input.");
-//     }
-// }
-//
-// getNumber();
-
-
 // function askForNumber() {
-//     let userInput = prompt("Enter a number greater than 100")?.trim();
-//     if (!userInput || isNaN(+userInput)) {
+//     let userInput = prompt("Enter a number greater than 100")?.trim(); // ВИКЛЮЧАЄМО " " - порожній рядок з пробілами
+//     if (!userInput || isNaN(+userInput)) { //
 //         console.log("Operation was canceled or invalid input.");
 //         return;
 //     }
@@ -658,74 +595,6 @@
 
 
 //-------------------------------------------------------------------------
-
-//Task 3: Числовий калькулятор
-
-function calculator() {
-
-    while(true) {  //while (true) — це нескінченний цикл, який працює доти, доки в коді не виконається break або return
-        let a = prompt("Enter your first number");
-        if(a === null) {
-            console.log("Operation was canceled.");
-            return;  //вихід з функціїй повернення значення
-        }
-        let b = prompt("Enter your second number");
-
-        if(b === null) {
-            console.log("Operation was canceled.");
-            return;
-        }
-
-        let operator = prompt("Enter your operator (+, -, *, /):");
-
-        if(operator === null) {
-            console.log("Operation was canceled.");
-            return;
-        }
-
-        a = a.trim();
-        b = b.trim();
-        operator = operator.trim();
-
-        if (a === "" || isNaN(+a) || b === "" || isNaN(+b)) {
-            console.log("Invalid input. Please enter valid numbers.");
-            continue;  //Перехід до наступної ітерації
-        }
-        // Коли інтерпретатор досягає continue, він переміщається до наступної ітерації циклу, пропускаючи виконання
-        // всього, що знаходиться після continue в поточному циклі
-
-        a = +a;
-        b = +b;
-
-        let result;
-
-        switch (operator) {
-            case '+':
-                result = a + b;
-                break; //зупинка циклу
-            case '-':
-                result = a - b;
-                break;
-            case '*':
-                result = a * b;
-                break;
-            case '/':
-                if(b === 0) {
-                    console.log(`Error: Division by zero is not allowed.`)
-                    continue;
-                }
-                result = a / b;
-                break;
-            default:
-                console.log(`Invalid operator: ${operator}. Please enter +, -, * or /.`);
-                continue;
-        }
-        console.log(`Result: ${a} ${operator} ${b} = ${result}`);
-        break;
-    }
-}
-
-calculator();
 
 
 
