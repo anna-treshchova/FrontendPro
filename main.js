@@ -420,38 +420,10 @@
 //     }
 // };
 //
-// person.greet();  // Викликаємо метод greet через ключ
+// person.greet();  // Викликаємо метод greet через
 
 
-//hw8.1
-
-// const ladder = {
-//     step: 0,
-//     up: function () {
-//         this.step++;
-//         return this;
-//     },
-//     down: function () {
-//         this.step--;
-//         return this;
-//     },
-//     showStep: function () {
-//         console.log(this.step);
-//         return this;
-//     }
-// };
-
-// ladder.up();
-//
-// ladder.up();
-//
-// ladder.down();
-//
-// ladder.showStep();
-
-
-// ladder.up().up().down().showStep();
-
+//-----------------------------------------------------------------
 
 //Task 1: Лічильник
 // const counter = {
@@ -476,27 +448,8 @@
 //
 // counter.increment().increment().decrement().showValue(); //1
 // counter.reset().increment().showValue(); //1
-//
 
-//--------------------------
 
-function outer () {
-    let sum = 0;
-    return function add (number) {
-        return sum += number;
-    }
-}
-
-let sum = outer;
-console.log(sum)
-
-console.log(sum(4)); // 4
-
-console.log(sum(6)); // 10
-
-console.log(sum(10)); // 20
-
-console.log(sum(7)); // 27
 
 
 
