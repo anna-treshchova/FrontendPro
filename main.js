@@ -331,19 +331,19 @@ console.log(Object.entries(user)); // [['name', 'Alice'], ['age', 25], ['city', 
 
 //-------------------------
 //ПЕРЕБІР МАСИВА
-const numbers = [10, 20, 30, 40];
-
-for(const num of numbers) {
-    console.log(num);  // 10 20 30 40
-}
+// const numbers = [10, 20, 30, 40];
+//
+// for(const num of numbers) {
+//     console.log(num);  // 10 20 30 40
+// }
 
 //-------------------------
 
 //ПЕРЕБІР РЯДКА (кожна літера окремо)
-const str = "Hello";
-for(const letter of str) {
-    console.log(letter) // H e l l o
-}
+// const str = "Hello";
+// for(const letter of str) {
+//     console.log(letter) // H e l l o
+// }
 //-------------------------
 
 //FOR...OF Не працює з об'єктами {}, бо вони не є ітерабельними.
@@ -361,15 +361,18 @@ for(const letter of str) {
 
 //TASK: знайти середній бал і вивести список оцінок, які вищі за середнє
 
-const grades = [85, 90, 78, 92, 88, 76, 95, 89];
-
-for (const grade of grades) {
-let totalGrade = 0
-}
-
-
-
-
+// const grades = [85, 90, 78, 92, 88, 76, 95, 89];
+//
+// function calcAvgGrade (grades) {
+//     let averageGrade = grades.reduce ((acc, grade) => acc + grade, 0) / grades.length;
+//     let aboveGrades = grades.filter(grade => grade > averageGrade);
+//     return {
+//         averageGrade,
+//         aboveGrades,
+//     }
+// }
+//
+// console.log(calcAvgGrade (grades));
 
 
 //----------------------------------------------------------------------------------------------------------------------
