@@ -1,0 +1,29 @@
+.btn {
+    display: flex;
+    margin: 0 auto;
+    font-family: "Times New Roman", serif;
+    font-size: 22px;
+    background-color: #ffffff;
+    padding: 5px;
+}
+
+.btn_active {
+    border-color: #e40101;
+    background-color: #e40101;
+    color: #ffffff;
+}
+
+.title {
+    color: #000000;
+    margin: 50px 0;
+    text-align: center;
+}
+
+.title_active {
+    color: #e40101;
+}
+
+.crossed-text_active {
+        color: #cfcfcf;
+        text-decoration: line-through;
+}
