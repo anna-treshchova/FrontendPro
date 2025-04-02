@@ -1,0 +1,32 @@
+.body {
+    background: #ffffff;
+    display: flex;
+}
+.wrapper {
+    background-color: #E6E6F0;
+    border-radius: 15px;
+    border: 2px #E6E6F0 solid;
+    overflow: hidden;
+    font-size: 0;
+    margin-top: 30px;
+}
+
+.btn {
+    padding: 14px 20px;
+    border: none;
+    border-radius: 12px;
+    background-color: #ffffff;
+    color: #323264;
+    text-decoration: none;
+    font-family: Beirut, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+
+}
+
+.btn_disabled {
+    background-color: transparent;
+    color: #323264;
+}
