@@ -1,0 +1,43 @@
+.outerDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+    border: 1px solid blue;
+}
+
+.middleDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    border: 1px solid red;
+}
+
+
+.participants-list {
+    list-style: none;
+    width: 130px;
+    margin-bottom: 40px;
+    li {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+}
+
+
+.delete-btn {
+    background-color: #ff3131;
+    border: none;
+}
+
+.part-input {
+    padding: 5px 10px;
+}
+
+.part-btn {
+    padding: 5px 10px;
+}
