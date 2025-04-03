@@ -1,0 +1,17 @@
+.body {
+    margin-left: 50px;
+}
+
+.title {
+    text-transform: capitalize;
+}
+
+.task-list {
+    width: 150px;
+    margin-bottom: 40px;
+    li {
+        margin-bottom: 15px;
+        display: flex;
+        justify-content: space-between;
+    }
+}
