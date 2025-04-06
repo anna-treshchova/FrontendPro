@@ -17,6 +17,22 @@
 }
 
 
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 300px;
+    border: 1px solid #717171;
+    margin-top: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+
+
 .participants-list {
     list-style: none;
     width: 130px;
