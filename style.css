@@ -13,5 +13,17 @@
         margin-bottom: 15px;
         display: flex;
         justify-content: space-between;
+        cursor: pointer;
+        &:hover span {
+            font-weight: bold;
+        }
+        button {
+            cursor: pointer;
+        }
     }
+}
+
+.task_crossed {
+    text-decoration: line-through;
+    color: #989898;
 }

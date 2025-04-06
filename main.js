@@ -6,6 +6,9 @@ taskList.addEventListener("click", (e) => {
     if (e.target.classList.contains("delete-btn")) {
         e.target.parentElement.remove();
     }
+    if (e.target.tagName === "SPAN") {
+        e.target.classList.toggle("task_crossed");
+    }
 });
 
 
@@ -14,7 +17,7 @@ taskBtn.addEventListener("click", () => {
 
     if (taskName) {
         const li = document.createElement("li");
-        li.innerHTML = `${taskName} <button class="delete-btn">Delete</button>`;
+        li.innerHTML = `<span>${taskName}</span><button class="delete-btn">Delete</button>`;
         taskList.appendChild(li);
     }
     taskInput.value = "";
