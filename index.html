@@ -2,9 +2,102 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
     <title>Title</title>
 </head>
-<body>
+<body class="body">
+<!--<label>-->
+<!--&lt;!&ndash;    <input type="range" id="rangeInput">&ndash;&gt;-->
+<!--&lt;!&ndash;    <input type="checkbox" id="checkboxInput">&ndash;&gt;-->
+<!--    <input type="text" id="textInput" placeholder="Enter something...">-->
+<!--</label>-->
+<!--<span id="textError" class="error"></span>-->
+
+
+<!--<label for="genderSelect"> Gender:</label>-->
+<!--<select id="genderSelect">-->
+<!--    <option value="male">Male</option>-->
+<!--    <option value="female">Female</option>-->
+<!--    <option value="other">Other</option>-->
+<!--</select>-->
+
+
+<!--<label>Country:-->
+<!--    <select id="countrySelect" class="country-select">-->
+<!--        <option value="au">Australia</option>-->
+<!--        <option value="us">United States</option>-->
+<!--        <option value="uk">United Kingdom</option>-->
+<!--        <option value="ua">Ukraine</option>-->
+<!--        <option value="ca">Canada</option>-->
+<!--        <option value="jp">Japan</option>-->
+<!--        <option value="es">Spain</option>-->
+<!--        <option value="nl">Netherlands</option>-->
+<!--        <option value="de">Germany</option>-->
+<!--        <option value="fr">France</option>-->
+<!--        <option value="it">Italy</option>-->
+<!--        <option value="po">Poland</option>-->
+<!--    </select>-->
+<!--</label>-->
+<!--<button id="setCountryBtn">Select country</button>-->
+
+<!--<label>-->
+<!--    <input type="radio" id="radioInput">Agree-->
+<!--</label>-->
+<!--<button id="radioBtn" class="btn">Clear Radio</button>-->
+
+
+<!--<div class="wrapper">-->
+<!--    <label>-->
+<!--        <input type="radio" id="blueTheme" class="theme" name="theme">Blue Theme-->
+<!--    </label>-->
+<!--    <label>-->
+<!--        <input type="radio" id="grayTheme" class="theme" name="theme">Gray Theme-->
+<!--    </label>-->
+<!--    <input type="radio" id="noTheme" name="theme" hidden>-->
+<!--</div>-->
+<!--<button id="radioBtn" class="btn">Clear Radio</button>-->
+
+<!--<form id="user-form" class="form">-->
+<!--    <label>-->
+<!--        <input id="email" name="email" type="text" placeholder="Email...">-->
+<!--    </label>-->
+<!--    <label>-->
+<!--        <input name="password" type="text" placeholder="Password...">-->
+<!--    </label>-->
+<!--    <label>-->
+<!--        <input name="name" type="text" placeholder="Name...">-->
+<!--    </label>-->
+<!--    <label>-->
+<!--        <input name="surname" type="text" placeholder="Surname...">-->
+<!--    </label>-->
+<!--    <button type="submit">Send</button>-->
+<!--</form>-->
+
+<form id="regForm" class="form">
+    <label>
+        Name:
+        <input type="text" name="name">
+        <span id="error-name" class="error"></span>
+    </label>
+    <label>
+        Email:
+        <input type="text" name="email">
+        <span id="error-email" class="error"></span>
+    </label>
+    <label>
+        Password:
+        <input type="text" name="password">
+        <span id="error-password" class="error"></span>
+    </label>
+    <label>
+        <input type="checkbox" name="agree">
+        I agree to the terms
+        <span id="error-agree" class="error"></span>
+    </label>
+    <button class="btn" type="submit">Sign up</button>
+</form>
+<!--Скоріш за все будь-який input на введення даних буде мати type="text"-->
+
 <script src="main.js"></script>
 </body>
 </html>
