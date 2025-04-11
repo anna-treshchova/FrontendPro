@@ -3,14 +3,6 @@ const submitButton = document.querySelector("#submit-btn");
 
 let hasError = false;
 
-function showFormError(selectorName, errorMessage) {
-    document.querySelector(`#error-${selectorName}`).textContent = errorMessage;
-    hasError = true;
-}
-
-function hideFormError(selectorName) {
-    document.querySelector(`#error-${selectorName}`).textContent = "";
-}
 
 contactForm.addEventListener("submit", function (e) {
     e.preventDefault();
@@ -23,6 +15,29 @@ contactForm.addEventListener("submit", function (e) {
     const phone = formData.get("phone").trim();
     const email = formData.get("email").trim();
 
+    validateFormData(name, phone, email);
+
+    if (!hasError) {
+        sendFormData(formData);
+        submitButton.disabled = true;
+        contactForm.reset();
+    }
+})
+
+contactForm.addEventListener("input", function () {
+    submitButton.disabled = false;
+})
+
+function showFormError(selectorName, errorMessage) {
+    document.querySelector(`#error-${selectorName}`).textContent = errorMessage;
+    hasError = true;
+}
+
+function hideFormError(selectorName) {
+    document.querySelector(`#error-${selectorName}`).textContent = "";
+}
+
+function validateFormData (name, phone, email) {
     if (!name) {
         showFormError("name", "Name is required");
     } else if (!/^[A-Za-zА-Яа-яІіЇїЄєҐґ][A-Za-zА-Яа-яІіЇїЄєҐґ\s\-]+$/.test(name)) {
@@ -48,12 +63,12 @@ contactForm.addEventListener("submit", function (e) {
     } else {
         hideFormError("email");
     }
+}
 
-    if (!hasError) {
-        submitButton.disabled = true;
-        console.log("Sending data to the server:")
-        for (const [key, value] of formData.entries()) {
-            console.log(`${key}: ${value}`);
-        }
+function sendFormData(formData) {
+    console.log("Sending data to the server:")
+    for (const [key, value] of formData.entries()) {
+        console.log(`${key}: ${value}`);
     }
-})
+}
+
