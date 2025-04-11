@@ -2,9 +2,79 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
     <title>Title</title>
 </head>
-<body>
+<body class="body">
+<form id="contact-form" class="form">
+    <h1>We would like to help you</h1>
+    <label>
+        <input class="form__input" type="text" name="name" placeholder="Name">
+        <span id="error-name" class="error"></span>
+    </label>
+    <label>
+        <textarea class="form__input" name="message" placeholder="Message" rows="4"></textarea>
+    </label>
+    <h2>How to answer you?</h2>
+    <label>
+        <input class="form__input" type="text" name="phone" placeholder="Phone number">
+        <span id="error-phone" class="error"></span>
+    </label>
+    <label>
+        <input class="form__input" type="text" name="email" placeholder="Email">
+        <span id="error-email" class="error"></span>
+    </label>
+    <button id="submit-btn" class="btn" type="submit">Send message</button>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<form class="form contact__form" action="#">-->
+<!--    <h1 class="form__title text text_red text_xl">We would like to help you</h1>-->
+<!--    <label>-->
+<!--        <input type="text" placeholder="Name" name="name" required>-->
+<!--    </label>-->
+<!--    <label>-->
+<!--        <textarea rows="4" name="message" placeholder="Message"></textarea>-->
+<!--    </label>-->
+<!--    <h2 class="form__question">How to answer you?</h2>-->
+<!--    <label>-->
+<!--        <input type="tel" placeholder="Phone number" name="phone number" required>-->
+<!--    </label>-->
+<!--    <label>-->
+<!--        <input type="email" placeholder="Email" name="email" required>-->
+<!--    </label>-->
+<!--    <button class="btn" type="submit">Send message</button>-->
+<!--</form>-->
 <script src="main.js"></script>
 </body>
 </html>
