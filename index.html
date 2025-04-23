@@ -6,25 +6,106 @@
     <title>Title</title>
 </head>
 <body class="body">
+<!--<div class="slider-container">-->
+<!--    <button id="prev-btn" class="btn">Prev</button>-->
+<!--    <div class="slider-wrapper">-->
+<!--        <div class="slider-track">-->
+<!--            <div class="slide"><img src="img/1.jpg" alt=""></div>-->
+<!--            <div class="slide"><img src="img/2.jpg" alt=""></div>-->
+<!--            <div class="slide"><img src="img/3.jpg" alt=""></div>-->
+<!--            <div class="slide"><img src="img/4.jpg" alt=""></div>-->
+<!--            <div class="slide"><img src="img/5.jpg" alt=""></div>-->
+<!--            <div class="slide"><img src="img/6.jpg" alt=""></div>-->
+<!--            <div class="slide"><img src="img/7.jpg" alt=""></div>-->
+<!--            <div class="slide"><img src="img/8.jpg" alt=""></div>-->
+<!--            <div class="slide"><img src="img/9.jpg" alt=""></div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <button id="next-btn" class="btn">Next</button>-->
+<!--</div>-->
+<!--<ul class="slider-dots"></ul>-->
 
-<div class="slider-container">
-    <button id="prev-btn" class="btn">Prev</button>
-    <div class="slider-wrapper">
-        <div class="slider-track">
-            <div class="slide"><img src="img/1.jpg" alt=""></div>
-            <div class="slide"><img src="img/2.jpg" alt=""></div>
-            <div class="slide"><img src="img/3.jpg" alt=""></div>
-            <div class="slide"><img src="img/4.jpg" alt=""></div>
-            <div class="slide"><img src="img/5.jpg" alt=""></div>
-            <div class="slide"><img src="img/6.jpg" alt=""></div>
-            <div class="slide"><img src="img/7.jpg" alt=""></div>
-            <div class="slide"><img src="img/8.jpg" alt=""></div>
-            <div class="slide"><img src="img/9.jpg" alt=""></div>
+
+<div class="slider">
+    <div class="slider__inner">
+        <button id="prev-btn" class="slider__btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="16" viewBox="0 0 19 16" fill="none">
+                <path d="M7.32365 0.448411C7.70741 0.0806939 8.31335 0.089219 8.67575 0.467434C9.03788 0.845666 9.01993 1.45069 8.63626 1.81832L3.36528 6.86885L17.9124 7.21738C18.4396 7.22509 18.9068 7.54453 18.892 8.07157C18.8769 8.59902 18.4001 8.88497 17.8725 8.87754L3.30978 8.77845L8.28801 13.974C8.65041 14.3522 8.6331 14.9564 8.24933 15.3241C7.86556 15.6918 7.26121 15.6833 6.89881 15.3051L0.337292 8.45716C-0.0251049 8.07894 -0.00856497 7.47397 0.375202 7.10625L7.32365 0.448411Z" fill="#FF6321"/>
+            </svg>
+        </button>
+        <div class="slider__wrapper">
+            <div class="slider__track">
+                <div class="slider__item">
+                    <img src="img/img-1.jpg" alt="">
+                    <div class="slider__item-content">
+                        <div class="slider__item-text">
+                            <div class="slider__item-title">Rizky Adongan</div>
+                            <div class="slider__item-date">19 Jan 2022</div>
+                        </div>
+                        <div class="slider__item-department">Design</div>
+                    </div>
+                </div>
+                <div class="slider__item">
+                    <img src="img/img-2.jpg" alt="">
+                    <div class="slider__item-content">
+                        <div class="slider__item-text">
+                            <div class="slider__item-title">Sara Johnson</div>
+                            <div class="slider__item-date">21 Feb 2022</div>
+                        </div>
+                        <div class="slider__item-department">Product</div>
+                    </div>
+                </div>
+                <div class="slider__item">
+                    <img src="img/img-3.jpg" alt="">
+                    <div class="slider__item-content">
+                        <div class="slider__item-text">
+                            <div class="slider__item-title">Alex Chen</div>
+                            <div class="slider__item-date">10 Mar 2022</div>
+                        </div>
+                        <div class="slider__item-department">Marketing</div>
+                    </div>
+                </div>
+                <div class="slider__item">
+                    <img src="img/img-4.jpg" alt="">
+                    <div class="slider__item-content">
+                        <div class="slider__item-text">
+                            <div class="slider__item-title">Maria Rodriguez</div>
+                            <div class="slider__item-date">5 Apr 2022</div>
+                        </div>
+                        <div class="slider__item-department">Development</div>
+                    </div>
+                </div>
+                <div class="slider__item">
+                    <img src="img/img-5.jpg" alt="">
+                    <div class="slider__item-content">
+                        <div class="slider__item-text">
+                            <div class="slider__item-title">Kevin Lee</div>
+                            <div class="slider__item-date">19 May 2022</div>
+                        </div>
+                        <div class="slider__item-department">Technology</div>
+                    </div>
+                </div>
+                <div class="slider__item">
+                    <img src="img/img-6.jpg" alt="">
+                    <div class="slider__item-content">
+                        <div class="slider__item-text">
+                            <div class="slider__item-title">Sophie Adams</div>
+                            <div class="slider__item-date">8 Jun 2022</div>
+                        </div>
+                        <div class="slider__item-department">Research</div>
+                    </div>
+                </div>
+            </div>
         </div>
+        <button id="next-btn" class="slider__btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="16" viewBox="0 0 19 16" fill="none">
+                <path d="M11.7478 15.3445C11.3729 15.7213 10.7669 15.7273 10.3956 15.3578C10.0245 14.9884 10.028 14.3831 10.4027 14.0064L15.5513 8.83108L1 8.83098C0.472776 8.8359 -0.00199456 8.52774 0.000195139 8.00049C0.00267173 7.47283 0.472462 7.17555 1.00011 7.17034L15.561 6.92071L10.4598 1.84588C10.0885 1.47645 10.0913 0.872036 10.4661 0.495235C10.841 0.118434 11.4454 0.112464 11.8167 0.481892L18.5403 7.17073C18.9117 7.54016 18.9096 8.14535 18.5348 8.52215L11.7478 15.3445Z" fill="#FF6321"/>
+            </svg>
+        </button>
     </div>
-    <button id="next-btn" class="btn">Next</button>
+    <div class="slider__dots"></div>
 </div>
-<ul class="slider-dots"></ul>
+
 <script src="main.js"></script>
 </body>
 </html>
