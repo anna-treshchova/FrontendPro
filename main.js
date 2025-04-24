@@ -382,7 +382,6 @@ const slidesToShow = 1;
 const gap = 0;
 const slideWidth = slides[0].offsetWidth + gap;
 let currentIndex = 1; // тому що перший справжній слайд тепер не на нульовій позиції
-const maxIndex = slides.length - slidesToShow;
 
 
 
@@ -409,14 +408,12 @@ track.insertBefore(lastSlide, slides[0]); // додаємо lastSlide перед
 const updatedSlides = document.querySelectorAll(".slider__item");
 
 nextBtn.addEventListener("click", () => {
-    if (currentIndex >= maxIndex) currentIndex = 0;
     currentIndex += slidesToShow;
 
     updateSlider()
 })
 
 prevBtn.addEventListener("click", () => {
-    if (currentIndex === 0) currentIndex = maxIndex;
     currentIndex -= slidesToShow;
     updateSlider()
 })
@@ -425,7 +422,7 @@ prevBtn.addEventListener("click", () => {
 // Це означає: "Як тільки слайдер закінчить свій рух — запусти ось цей код"
 
 track.addEventListener("transitionend", () => {
-    if (slides[currentIndex].classList.contains("clone-start")) {
+    if (updatedSlides[currentIndex].classList.contains("clone-start")) {
         track.style.transition = "none";     // вимикаємо анімацію щоб не було плавного ефекту — нам треба зробити телепорт
         currentIndex = slides.length - 2;   // змінюємо currentIndex клона на індекс справжнього останнього слайду
         updateSlider()    // переміщуємо слайдер (телепортуємо користувача на справжній останній слайд)
@@ -436,7 +433,7 @@ track.addEventListener("transitionend", () => {
         }, 50)
     }
 
-    if (slides[currentIndex].classList.contains("clone-end")) {
+    if (updatedSlides[currentIndex].classList.contains("clone-end")) {
         track.style.transition = "none";
         currentIndex = 1;
         updateSlider()
