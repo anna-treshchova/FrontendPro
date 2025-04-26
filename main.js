@@ -3,8 +3,88 @@
 const nextBtn =  document.querySelector('#next-btn');
 const prevBtn = document.querySelector('#prev-btn');
 const track = document.querySelector('.slider__track');
-let slides = document.querySelectorAll('.slider__item');
 const dotsContainer = document.querySelector('.slider__dots');
+
+const slidesData = [
+    {
+        img: '1.jpg',
+        name: 'Rizky Adongan',
+        date: '19 Jan 2022',
+        department: 'Design'
+    },
+    {
+        img: '2.jpg',
+        name: 'Sara Johnson',
+        date: '21 Feb 2022',
+        department: 'Product'
+    },
+    {
+        img: '3.jpg',
+        name: 'Alex Chen',
+        date: '10 Mar 2022',
+        department: 'Marketing'
+    },
+    {
+        img: '4.jpg',
+        name: 'Maria Rodriguez',
+        date: '5 Apr 2022',
+        department: 'Development'
+    },
+    {
+        img: '5.jpg',
+        name: 'Kevin Lee',
+        date: '19 May 2022',
+        department: 'Technology'
+    },
+    {
+        img: '6.jpg',
+        name: 'Sophie Adams',
+        date: '8 Jun 2022',
+        department: 'Research'
+    }
+];
+
+function createSlides(slidesData) {
+    slidesData.forEach(slide => {
+        const slideEl = document.createElement('div');
+        slideEl.classList.add('slider__item');
+
+        const img = document.createElement('img');
+        img.src = `img/${slide.img}`;
+
+        const content =  document.createElement('div');
+        content.classList.add('slider__item-content');
+
+        const text = document.createElement('div');
+        text.classList.add('slider__item-text');
+
+        const name = document.createElement('div');
+        name.classList.add('slider__item-name');
+        name.innerText = slide.name;
+
+        const date = document.createElement('div');
+        date.classList.add('slider__item-date');
+        date.innerText = slide.date;
+
+        const department = document.createElement('div');
+        department.classList.add('slider__item-department');
+        department.innerText = slide.department;
+
+        text.appendChild(name);
+        text.appendChild(date);
+        content.appendChild(text);
+        content.appendChild(department);
+
+        slideEl.appendChild(img);
+        slideEl.appendChild(content);
+
+        track.appendChild(slideEl);
+    })
+}
+
+createSlides(slidesData);
+
+let slides = document.querySelectorAll('.slider__item');
 
 const firstSlide = slides[0].cloneNode(true);
 firstSlide.classList.add('clone-end');
@@ -20,7 +100,6 @@ let currentIndex = 1;
 const slideWidth = slides[0].offsetWidth;
 let dots = [];
 
-console.log(slideWidth);
 track.style.transform = `translate(-${slideWidth * currentIndex}px)`;
 setTimeout(() => {
     track.style.transition = 'transform 0.4s ease';
