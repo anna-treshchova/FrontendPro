@@ -1,10 +1,29 @@
 "use strict";
 
 const track = document.querySelector(".slider-track");
-const slides = document.querySelectorAll(".slide");
 const prevBtn = document.querySelector("#prev-btn");
 const nextBtn = document.querySelector("#next-btn");
 const sliderDots = document.querySelector(".slider-dots");
+
+const images = ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg", "8.jpg", "9.jpg"];
+
+function createSlides(images) {
+    images.forEach((image) => {
+        const slide = document.createElement("div");
+        slide.classList.add("slide");
+
+        const img = document.createElement("img");
+        img.src = `img/${image}`;
+        img.alt = "";
+
+        slide.appendChild(img);
+        track.appendChild(slide);
+    })
+}
+
+createSlides(images);
+
+const slides = document.querySelectorAll(".slide");
 
 const slidesToShow = 2;
 const gap = 5;
