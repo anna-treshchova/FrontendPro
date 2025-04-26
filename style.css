@@ -109,7 +109,6 @@
 }
 .slider__track {
     display: flex;
-    transition: transform 0.5s ease;
 }
 
 .slider__item {
@@ -165,4 +164,31 @@
 }
 .slider__btn:hover {
     border-color: #8e9195;
+}
+
+.slider__dots {
+    margin-top: 30px;
+    display: flex;
+}
+
+.dot {
+    padding: 0;
+    display: block;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    border: 1px solid #D0D5DD;
+    box-shadow: 0 1px 2px 0 rgba(16, 24, 40, 0.05);
+    cursor: pointer;
+    margin: 0 3px;
+    transition: border-color ease-in-out 0.2s, background-color 0.4s ease-in-out;
+}
+
+.dot:hover {
+    border-color: #8e9195;
+}
+
+.dot.active {
+    background-color: #FF6321;
 }

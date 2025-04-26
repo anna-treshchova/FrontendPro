@@ -119,7 +119,6 @@ console.log(isAdminKiss({name:'Anna', email:'anna@gmail.com', role: 'admin'})); 
 console.log(isAdminKiss(56))   // false
 
 
-
  2. DRY  —  Don't Repeat Yourself
 -----------------------------------
 Одна й та сама логіка або дані не повинні дублюватися в коді.
@@ -169,11 +168,9 @@ function getRoleMessage(role) {
 }
 
 
-
- 2. YAGNI  —  You Aren’t Gonna Need It
+ 3. YAGNI  —  You Aren’t Gonna Need It
 ----------------------------------------
-Не реалізовуй функціональність, поки в ній немає реальної потреби.
-Тобто не реалізовуй функціональність "на майбутнє"
+Не реалізовуй функціональність, поки в ній немає реальної потреби ("на майбутнє")
 
 Під час розробки може виникнути спокуса:
      ◦ "А раптом потім потрібно буде ще оце?"
@@ -190,27 +187,196 @@ YAGNI каже: не витрачай час, поки немає конкрет
 
      Не пиши код, “бо колись, можливо, знадобиться”
      Пиши лише те, що потрібно зараз
- */
+
+
+ 4. MVP — Minimum Viable Product (Мінімально життєздатний продукт)
+--------------------------------------------------------------------
+Концентруйся на MVP, а не на BDUF - "спочатку робочий код, всі покращення потім"
+
+MVP — це перша, найпростіша версія продукту, яка:
+  ◦ вже працює
+  ◦ має тільки основні функції
+  (додатково)
+  ◦ дозволяє отримати зворотний зв’язок від користувачів
+  ◦ створюється швидко й з мінімальними затратами
+
+Мета MVP - перевірити гіпотезу або бізнес-ідею
+
+MVP (або NVP - Near Viable Product (майже життєздатний продукт)) - це сучасний підхід, який протистоїть старому принципу
+розробки BDUF, й цей сучасний підхід каже: "Не продумуй усе наперед, а зроби мінімальне NVP (або MVP) і перевір ідею".
+
+BDUF — Big Design Up Front (Велике проєктування наперед) — це підхід до розробки, де вся архітектура, структура, дизайн
+ретельно продумуються та документуються ще до початку програмування.
+
+Це стратегія: "Спочатку ретельно спроєктуй, потім кодуй".
+
+
+ 5. SOLID
+-----------
+Формально SOLID — це набір принципів об'єктно-орієнтованого програмування (ООП), але з часом перші два принципи SRP
+(Single Responsibility Principle) та OCP (Open/Closed Principle) стали настільки корисними й універсальними, що їх
+широко використовують в програмуванні й поза межами ООП.
+
+
+   ◦ SRP - Single Responsibility Principle (принцип єдиної відповідальності)
+  ---------------------------------------------------------------------------
+  Кожна функція повинна виконувати лише одну конкретну задачу, для вирішення якої ця функція й була створена
+  (це вказується в назві функції). Якщо вона виконує більше ніж одну задачу — це призводить до змішання логіки
+  й ускладнює підтримку.
+
+    ◦ Кожна функція має відповідати тільки за одну річ
+    ◦ Таку функцію зручно тестувати, розширювати або змінювати
+
+  ❗️ Кожна функція повинна мати тільки одну причину для змін ❗️
+
+   РОЗ'ЯСНЕННЯ:
+    ◦ "Одна причина для змін" — це умовно: коли треба змінити код, ми повинні робити це тільки з однієї причини.
+    ◦ Причини для змін — це різні фактори, які можуть змусити нас змінювати функцію.
+
+    ПРИКЛАД:
+    function saveUser(user) {
+
+      if (!user.name) {                              // Перевірка даних користувача (чи є ім'я) - first responsibility
+        throw new Error("Name is required");
+      }
+
+      database.save(user);                          // Збереження користувача в базу даних - second responsibility
+
+      emailService.sendWelcomeEmail(user.email);   // Надсилання вітального листа користувачу - third responsibility
+    }
+                                              ↓ ↓ ↓
+
+    function validateUser(user) {
+      if (!user.name) {                            // Перевірка даних користувача (чи є ім'я) - first responsibility
+        throw new Error("Name is required");
+      }
+    }
+
+    function saveUserToDatabase(user) {
+      database.save(user);                         // Збереження користувача в базу даних - first responsibility
+    }
+
+    function sendWelcomeEmail(user) {
+      emailService.sendWelcomeEmail(user.email);  // Надсилання вітального листа користувачу - first responsibility
+    }
+
+    function saveUser(user) {                    // Викликаємо функції по черзі в одній функції
+      validateUser(user);
+      saveUserToDatabase(user);
+      sendWelcomeEmail(user);
+    }
+
+
+   ◦ OCP - Open/Closed Principle (принцип відкритості/закритості)
+  ---------------------------------------------------------------------------
+  Код (функція) має бути відкритим для розширення, але закритим для змін.
+
+  Тобто, коли змінюються вимоги — ми додаємо нові можливості зовні, не ламаючи і не змінюючи внутрішню логіку функції.
+
+  Якщо функція вирішує одне завдання, то при розширенні програми ми не повинні лізти в середину цієї функції і
+  переписувати її. Натомість — передаємо їй інші функції або дані, і вона адаптується.
+
+  EXAMPLE: обробка чисел
+
+  function processNumbers(numbers, operation) {
+    if (operation === 'sum') {
+      return numbers.reduce((acc, number) => acc + number, 0);
+    } else if (operation === 'multiply') {
+      return numbers.reduce((acc, number) => acc * number, 1);
+    }
+  }
+  console.log(processNumbers([2, 5, 8], "sum")) // 15
+
+ // Щоразу коли захочеш додати нову операцію — доведеться редагувати processNumbers
+
+                    ↓ ↓ ↓
+
+  function processNumbers(numbers, operationFn) {
+    return operationFn(numbers);
+  }
+
+  const sum = nums => nums.reduce((acc, number) => acc + number, 0);
+  const multiply = nums => nums.reduce((acc, number) => acc * number, 1);
+  const average = nums => sum(nums) / nums.length;
+
+  console.log(processNumbers([2, 5, 8], sum));      // 15
+  console.log(processNumbers([2, 5, 8], multiply)); // 80
+  console.log(processNumbers([2, 5, 8], average));  // 5
+
+  // Головна функція processNumbers не змінюється взагалі. Ми лише передаємо їй інші функції.
+
+  ЗАСТОСУВАННЯ В РЕАЛЬНОМУ КОДІ:
+    ◦ Пишеш функцію для обробки подій? Передавай обробник як параметр.
+    ◦ Потрібно фільтрувати масив по-різному? Передавай функцію-фільтр.
+    ◦ Потрібна валідація? Робиш функцію, яка приймає набір перевірок.
+
+
+  ANOTHER EXAMPLE:
+
+  function getDiscount(userType) {
+      if (userType === "new") {
+          return 10;
+      } else if (userType === "regular") {
+          return 5;
+      } else if (userType === "vip") {
+          return 15;
+      }
+  }
+            ↓ ↓ ↓
+
+  const discountMap = {
+      new: 10,
+      regular: 5,
+      vip: 15,
+  }
+
+  function getDiscount(userType) {
+      return discountMap[userType] ?? 0;   // якщо тип не знайдено — повертає 0
+  }
+
+  // ?? 0 — це оператор nullish coalescing: повертає 0, якщо discountMap[userType] є undefined або null
+
+  console.log(getDiscount('vip'));      // 15
+  console.log(getDiscount('new'));      // 10
+  console.log(getDiscount('unknown'));  // 0
+
+  discountMap.partner = 12;    // тепер щоб додати новий тип ми просто додаємо нове поле в discountMap
+                              // функція getDiscount залишається недоторканою, ми лише розширюємо дані
+
+
+ 6. APO — Avoid Premature Optimization (уникайте передчасної оптимізації)
+---------------------------------------------------------------------------
+Спочатку пиши простий, читабельний та чистий код, який описує твої перетворення даних. Не хвилюйся одразу про швидкість.
+
+Тобто, не намагайся зробити код супер-швидким чи "ефективним" до того, як він хоча б запрацює правильно і реально стане
+повільним.
 
 
 
+ 7. Occam's Razor — Бритва Оккама           "Серед кількох рішень обирай найпростіше, яке все ще працює" - ОБРІЗАЙ ЗАЙВЕ
+-----------------------------------
+  Цей принцип пішов від філософії Вільяма Оккама, середньовічнього філософа.
+
+  СУТЬ ПРИНЦИПУ: Не множ сущностей без потреби (не ускладнюй, якщо можна простіше).
+
+    ◦ Пиши тільки те, що реально потрібно  →  Менше — краще. Та сама логіка, менше шуму.
+    ◦ Не ускладнюй логіку без причин
+    ◦ Уникай абстракцій, які не дають користі прямо зараз
+    ◦ Вибирай найпростіше рішення, яке працює
+                    ↓
+    ◦ Рішення яке має менше коду — має менше шансів на баги
+    ◦ Не оптимізуй те, що ще не працює
+    ◦ Чим менше залежностей, тим менше болю
+
+ОБРІЗАЙ ЗАЙВЕ:
+
+  ◦ Зайвий умовний блок (if), якщо можна без нього.
+  ◦ Зайвий рівень абстракції (дві функції, які роблять одну дію).
+  ◦ Зайві перевірки, які ніколи не спрацюють.
+  ◦ Зайві оптимізації, які нічого не дають.
+  ◦ Зайвий код "на майбутнє", який ніколи не стане потрібним.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
 ------------------------------------------------------------------------------------------------------------------------
 
  ?.  —  optional chaining (опціональне ланцюжкове звертання)
@@ -372,49 +538,69 @@ updateSlider();
 TASK 2: SLIDER
 
  */
-const track = document.querySelector(".slider__track");
-const slides = document.querySelectorAll(".slider__item");
+'use strict';
+
 const nextBtn = document.querySelector("#next-btn");
 const prevBtn = document.querySelector("#prev-btn");
+const track = document.querySelector(".slider__track");
+let slides = document.querySelectorAll(".slider__item");
 const dotsContainer = document.querySelector(".slider__dots");
-
-const slidesToShow = 1;
-const gap = 0;
-const slideWidth = slides[0].offsetWidth + gap;
-let currentIndex = 1; // тому що перший справжній слайд тепер не на нульовій позиції
-
-
 
 const firstSlide = slides[0].cloneNode(true); // копія першого слайда
 firstSlide.classList.add("clone-end");
 
 const lastSlide = slides[slides.length - 1].cloneNode(true); // копія останнього слайда
 lastSlide.classList.add("clone-start");
-/*
--------------------
+
+/*-------------------
 cloneNode — це метод, який створює копію елемента DOM
 
 СИНТАКСИС:   const newElement = element.cloneNode([true OR false]);
 
    ◦ cloneNode(false) - копіюється тільки сам елемент, без дочірніх елементів
    ◦ cloneNode(true) - копіюється весь елемент разом з усім його вмістом всередині
--------------------
+-------------------*/
 
-*/
 track.appendChild(firstSlide); // додаємо firstSlide як останній слайд в track
 track.insertBefore(lastSlide, slides[0]); // додаємо lastSlide перед першим справжнім слайдом в track
 
-// оновлюємо список слайдів після додавання клонів
-const updatedSlides = document.querySelectorAll(".slider__item");
+slides = Array.from(document.querySelectorAll('.slider__item')); // оновлюємо список слайдів після додавання клонів (Array.from не обов'язково було використовувати)
+
+/*-------------------
+Array.from — це вбудований метод JS, який створює справжній масив (Array) із:
+
+  ◦ псевдомасиву (наприклад, NodeList, arguments)
+  ◦ або ітерованого об’єкта (наприклад, рядка)
+
+ПЕРЕВАГИ:
+  ◦ Можна використовувати методи масиву: .map(), .filter(), .reduce(), тощо
+  ◦ Зручно перетворювати нестандартні колекції на звичайні масиви
+-------------------*/
+
+let currentIndex = 1; // тому що перший справжній слайд тепер не на нульовій позиції
+const slideWidth = slides[0].offsetWidth;
+let dots = [];
+
+track.style.transform = `translate(-${slideWidth * currentIndex}px)`;
+setTimeout(() => {
+    track.style.transition = 'transform 0.5s ease';
+}, 50);
+
+let isMoving = false;
 
 nextBtn.addEventListener("click", () => {
-    currentIndex += slidesToShow;
+    if (isMoving) return;
+    isMoving = true;
+    currentIndex++;
 
     updateSlider()
 })
 
 prevBtn.addEventListener("click", () => {
-    currentIndex -= slidesToShow;
+    if (isMoving) return;
+    isMoving = true;
+    currentIndex--;
+
     updateSlider()
 })
 
@@ -422,10 +608,13 @@ prevBtn.addEventListener("click", () => {
 // Це означає: "Як тільки слайдер закінчить свій рух — запусти ось цей код"
 
 track.addEventListener("transitionend", () => {
-    if (updatedSlides[currentIndex].classList.contains("clone-start")) {
+    isMoving = false;
+
+    if (slides[currentIndex].classList.contains("clone-end")) {
         track.style.transition = "none";     // вимикаємо анімацію щоб не було плавного ефекту — нам треба зробити телепорт
-        currentIndex = slides.length - 2;   // змінюємо currentIndex клона на індекс справжнього останнього слайду
-        updateSlider()    // переміщуємо слайдер (телепортуємо користувача на справжній останній слайд)
+        currentIndex = 1;   // змінюємо currentIndex клона на індекс справжнього останнього слайду
+
+        track.style.transform = `translate(-${slideWidth * currentIndex}px)`;  // переміщуємо слайдер (телепортуємо користувача на справжній останній слайд)
 
     // Потім через 50 мс знову вмикаємо плавну анімацію
         setTimeout(() => {
@@ -433,10 +622,11 @@ track.addEventListener("transitionend", () => {
         }, 50)
     }
 
-    if (updatedSlides[currentIndex].classList.contains("clone-end")) {
+    if (slides[currentIndex].classList.contains("clone-start")) {
         track.style.transition = "none";
-        currentIndex = 1;
-        updateSlider()
+        currentIndex = slides.length - 2;
+
+        track.style.transform = `translate(-${slideWidth * currentIndex}px)`;
 
         setTimeout(() => {
             track.style.transition = "transform 0.5s ease-in-out";
@@ -445,8 +635,8 @@ track.addEventListener("transitionend", () => {
 });
 
 
-/*
--------------------
+/*-------------------
+
 Спочатку нам потрібно щоб переміщення відбулось миттєво. Ми хочемо телепортувати слайдер без анімації.
 Тому пишемо:
     track.style.transition = "none";
@@ -475,8 +665,8 @@ track.addEventListener("transitionend", () => {
   ◦ ...почекай...
   ◦ тепер можеш знову вмикати transition
 
-
 -------------------
+
 setTimeout - це функція в JS, яка дозволяє відкласти виконання коду на певний час.
 Вона каже браузеру: "Зроби щось через N мілісекунд, а не одразу."
 
@@ -484,17 +674,53 @@ setTimeout - це функція в JS, яка дозволяє відкласт
 
    ◦ функція - це код, який треба виконати
    ◦ час_у_мс - це затримка в мілісекундах (1 сек = 1000 мс)
- */
+
+-------------------*/
 
 function updateSlider() {
     track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
+
+    let dotIndex;
+    if (currentIndex === 0) {
+        dotIndex = dots.length - 1;
+    } else if (currentIndex > dots.length) {
+        dotIndex = 0;
+    } else {
+        dotIndex = currentIndex - 1;
+    }
+
+    dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === dotIndex);
+    })
 }
 
+function createDots() {
+    const totalDots = slides.length -2;
+
+    for (let i = 1; i <= totalDots; i++) {
+        const dot = document.createElement("button");
+        dot.classList.add('dot');
+
+        dotsContainer.appendChild(dot);
+        dots.push(dot);
+
+        if (i === 1) {
+            dot.classList.add('active');
+        }
+
+        dot.addEventListener('click', () => {
+            if (isMoving) return;
+            isMoving = true;
+            currentIndex = i;
+            updateSlider();
+        })
+    }
+}
+
+createDots();
 updateSlider();
 
-/*
-
-------------------------------------------------------------------------------------------------------------------------
+/*----------------------------------------------------------------------------------------------------------------------
 
 NodeList — це спеціальний об'єкт, схожий на масив, який повертає JS, коли ми використовуємо document.querySelectorAll()
 або деякі інші методи для вибору елементів DOM.
@@ -549,8 +775,7 @@ DOM вузли (node)
       </div>                                                                   ├── text - "Hello, "
     </body>                                                                    └── span
   </html>                                                                          └── text - "World!"
-------------------------------------------------------------------------------------------------------------------------
-*/
+----------------------------------------------------------------------------------------------------------------------*/
 
 
 
