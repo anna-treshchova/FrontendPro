@@ -2,9 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
     <title>Title</title>
 </head>
 <body>
+<!--<button id="add">Add</button>-->
+<!--<button id="show">Show</button>-->
+<!--<button id="remove">Remove</button>-->
+
+<div class="container">
+    <h2>🎬 My film collection</h2>
+    <form class="form">
+        <label>
+            <input id="movieName" type="text" placeholder="Movie name">
+        </label>
+        <label>
+            <input id="movieYear" type="text" placeholder="Year">
+            <span id="errorYear" class="error"></span>
+        </label>
+        <label>
+            <input id="movieGenre" type="text" placeholder="Movie genre">
+        </label>
+        <button id="addBtn" class="form-btn">Add Movie</button>
+    </form>
+    <ul id="movieList" class="movie-list"></ul>
+</div>
 <script src="main.js"></script>
 </body>
 </html>
