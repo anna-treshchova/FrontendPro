@@ -10,22 +10,33 @@
 <!--<button id="show">Show</button>-->
 <!--<button id="remove">Remove</button>-->
 
+<!--<div class="container">-->
+<!--    <h2>🎬 My film collection</h2>-->
+<!--    <form class="form">-->
+<!--        <label>-->
+<!--            <input id="movieName" type="text" placeholder="Movie name">-->
+<!--        </label>-->
+<!--        <label>-->
+<!--            <input id="movieYear" type="text" placeholder="Year">-->
+<!--            <span id="errorYear" class="error"></span>-->
+<!--        </label>-->
+<!--        <label>-->
+<!--            <input id="movieGenre" type="text" placeholder="Movie genre">-->
+<!--        </label>-->
+<!--        <button id="addBtn" class="form-btn">Add Movie</button>-->
+<!--    </form>-->
+<!--    <ul id="movieList" class="movie-list"></ul>-->
+<!--</div>-->
+
 <div class="container">
-    <h2>🎬 My film collection</h2>
-    <form class="form">
+    <h1>ToDoList</h1>
+    <form class="form js-form">
         <label>
-            <input id="movieName" type="text" placeholder="Movie name">
+            <input type="text" name="value" required class="form__input js-form__input">
         </label>
-        <label>
-            <input id="movieYear" type="text" placeholder="Year">
-            <span id="errorYear" class="error"></span>
-        </label>
-        <label>
-            <input id="movieGenre" type="text" placeholder="Movie genre">
-        </label>
-        <button id="addBtn" class="form-btn">Add Movie</button>
+        <button class="add-btn js-add-btn">Add</button>
     </form>
-    <ul id="movieList" class="movie-list"></ul>
+    <ul class="todo__list js-todo__list"></ul>
 </div>
 <script src="main.js"></script>
 </body>
