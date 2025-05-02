@@ -56,6 +56,7 @@
 
  ПРИКЛАД ЧЕРЕЗ ФУНКЦІЮ-КОНСТРУКТОР:
 
+
 ------------------------------------------------------------------------------------------------------------------------
  ПРОТОТИП
 
@@ -66,10 +67,7 @@
 
  ПРИКЛАД:
 */
-    const animal = {
-        eats: true,
-        wal
-    }
+
 
 
  /*
@@ -95,4 +93,27 @@
  ближчим до класичного ООП у таких мовах, як Java чи C++.
 ---------------------                                                                              ---------------------
 
+Створюєм функцію констурктор:
  */
+function Counter() {
+    let count = 0;
+
+    this.increment = function () {
+        count++;
+        return this;
+    };
+
+    this.decrement = function () {
+        count--;
+        return this
+    }
+
+    this.getCount = function () {
+        console.log(count);
+    }
+}
+
+const counter = new Counter(); //створили новий об'єкт прототипом якого є функція-конструктор Counter
+console.log(counter);
+
+counter.increment().decrement().increment().getCount(); //1
