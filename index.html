@@ -2,9 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
     <title>Title</title>
 </head>
-<body>
+<body class="body">
+<div class="timer">
+    <h3>Timer</h3>
+    <div class="timer__time">
+        <label>
+            <input type="text" id="timerHours" placeholder="00"> :
+        </label>
+        <label>
+            <input type="text" id="timerMinutes" placeholder="00"> :
+        </label>
+        <label>
+            <input type="text" id="timerSeconds" placeholder="00">
+        </label>
+    </div>
+    <div class="timer__controls">
+        <button id="timerStartBtn" class="start-btn">Start</button>
+        <button id="timerEndBtn" class="end-btn">End</button>
+    </div>
+</div>
 <script src="main.js"></script>
 </body>
 </html>
