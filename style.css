@@ -1,0 +1,117 @@
+* {
+    box-sizing: border-box;
+}
+
+.body {
+    display: flex;
+    font-family: Arial, sans-serif;
+    background-color: #e2edf8;
+    color: #ffffff;
+    margin: 0;
+    font-weight: 500;
+}
+
+.weather {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(to bottom, #8fc3e3, #0d679d);
+    min-width: 500px;
+    height: auto;
+    border-radius: 20px;
+    padding: 30px 30px 10px;
+    margin: 150px auto 0;
+    z-index: -2;
+}
+
+.weather__main {
+    display: flex;
+    margin-bottom: 80px;
+}
+
+.weather__city {
+    margin-left: 10px;
+    font-size: 18px;
+}
+
+.weather__temp {
+    font-size: 30px;
+}
+
+.weather__temp span {
+    font-size: 70px;
+    font-weight: 400;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.weather__overall {
+    position: relative;
+    display: flex;
+    font-size: 50px;
+    font-weight: 600;
+    margin: 20px 30px 0 auto;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.weather__feels-like {
+    margin: 0 0 -10px 10px;
+    align-self: flex-end;
+    font-size: 16px;
+}
+
+.weather__feels-like span {
+    font-size: 22px;
+}
+
+.weather__box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.weather__box > div {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: calc(33.333% - 1px);
+    border-radius: 20px;
+    text-transform: uppercase;
+    font-size: 10px;
+    background-color: rgba(128, 206, 255, 0.24);
+}
+
+.weather__box > div > div {
+    text-transform: none;
+    margin-top: 5px;
+}
+
+.weather__box span {
+    font-size: 35px;
+}
+
+.weather__last-update {
+    margin-top: 30px;
+    font-size: 12px;
+    text-align: end;
+}
+.weather__last-update span {
+    font-weight: 600;
+}
+
+.weather__icon {
+    position: absolute;
+    width: 130px;
+    z-index: -1;
+    top: -60px;
+    right: -70px;
+}
+
+.weather__message{
+    text-align: center;
+    font-size: 18px;
+    margin-top: -15px;
+    padding-bottom: 5px;
+}
+
+
+
