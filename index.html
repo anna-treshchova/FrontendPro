@@ -2,9 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>TODO App</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="body">
+<div class="container">
+    <h1>📝 TODO list</h1>
+    <form id="todo-form">
+        <input type="text" id="todo-input" placeholder="What I need to do?">
+        <button id="add-btn" type="submit">Add</button>
+    </form>
+    <ul id="todo-list"></ul>
+</div>
 <script src="main.js"></script>
 </body>
 </html>
