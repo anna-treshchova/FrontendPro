@@ -49,10 +49,11 @@ button {
     border: none;
     border-radius: 8px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 button:hover {
-    background: #025e9a;
+    background-color: #025e9a;
 }
 
 ul {
@@ -109,4 +110,5 @@ label {
 
 .delete-btn:hover {
     transform: scale(1.1);
+    background-color: #e4e4e4;
 }
