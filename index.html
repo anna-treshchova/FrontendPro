@@ -2,9 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Posts</title>
+    <link rel="stylesheet" href="./styles/style.css">
 </head>
-<body>
-<script src="main.js"></script>
+<body class="body">
+<div class="container">
+    <div class="form-container">
+        <h1>Create New Post</h1>
+        <div id="post-status" class="post-status"></div>
+        <form id="post-form">
+            <label>
+                <input  id="post-input-title" type="text" placeholder="Enter post title...">
+            </label>
+            <label>
+                <textarea id="post-input-body" placeholder="Write your post content here..."></textarea>
+            </label>
+            <button id="add-btn" type="submit">Post</button>
+        </form>
+    </div>
+    <h2>Post List</h2>
+    <ul id="post-list" class="posts"></ul>
+</div>
+<script src="js/index.js" type="module"></script>
 </body>
 </html>
