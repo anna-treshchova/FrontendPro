@@ -1,1 +1,0 @@
-(()=>{"use strict";console.log(15),console.log("Hello, Emma!");const o=[1,2,3,4].map((o=>2*o));console.log(o)})();
