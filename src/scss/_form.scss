@@ -1,0 +1,74 @@
+.form-container {
+  padding: 40px 30px;
+  background-color: rgba(250, 250, 250, 0.84);
+  border-radius: 10px;
+  margin-bottom: 60px;
+  border-top: 5px solid #f9ad42;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.15);
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+  input, textarea {
+    outline: none;
+    width: 500px;
+    padding: 10px 15px;
+    border: 2px solid #ffffff;
+    border-radius: 2px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+    transition: border-color .3s ease;
+    font-family: "Arial", sans-serif;
+    font-size: 16px;
+    color: #434343;
+
+    ::placeholder {
+      font-size: 16px;
+      font-family: "Arial", sans-serif;
+      color: #b1aeae;
+      transition: color .3s ease;
+    }
+
+    &:focus::placeholder {
+      color: #434343
+    }
+  }
+
+  button {
+    background-color: #434343;
+    border: none;
+    border-radius: 2px;
+    color: #e8e7ea;
+    font-weight: 600;
+    padding: 12px 70px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color .3s ease;
+
+    &:hover {
+      background-color: #f6a128;
+    }
+  }
+
+  .post-status {
+    text-align: center;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: 500;
+    font-size: 16px;
+    text-shadow: 0 1px 2px rgba(218, 218, 218, 0.25);
+    height: 30px;
+    padding-bottom: 10px;
+  }
+
+  .success {
+    color: #00bf2c;
+  }
+
+  .error {
+    color: #f62a2a;
+  }
+}
