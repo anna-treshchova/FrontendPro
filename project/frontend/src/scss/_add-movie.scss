@@ -1,0 +1,59 @@
+.add-movie {
+  background-color: rgba(7, 3, 3, 0.4);
+  padding: 16px 32px;
+  max-width: 450px;
+  border-radius: 16px;
+  margin: 0 auto 60px;
+
+  h2 {
+    font-size: 22px;
+  }
+
+  form {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  label {
+    display: flex;
+    flex-direction: column;
+  }
+
+  input {
+    padding: 10px 12px;
+    font-size: 15px;
+    font-family: inherit;
+    background: #ededed;
+    color: #000000;
+    border: 1px solid #d9d9d9;
+    border-radius: 6px;
+    transition: border 0.3s;
+
+    &::placeholder {
+      color: #858585;
+      font-family: 'Georgia', serif;
+    }
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(22, 119, 255, 0.2);
+    }
+  }
+  button {
+    padding: 14px 16px;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Georgia', serif;
+    background-color: rgba(158, 0, 0, 0.6);
+    color: #ececec;
+    border: none;
+    border-radius: 6px;
+    margin-top: 10px;
+    transition: background-color 0.3s, color 0.3s;
+    &:hover {
+      color: #f5c20a;
+      background-color: rgba(168, 1, 1, 0.6);
+    }
+  }
+}

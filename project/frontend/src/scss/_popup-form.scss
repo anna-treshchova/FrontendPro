@@ -1,0 +1,60 @@
+.popup-form {
+  input {
+    display: block;
+    padding: 6px 12px;
+    font-size: 16px;
+    background: #ededed;
+    color: #000000;
+    border: 1px solid #d9d9d9;
+    border-radius: 6px;
+    transition: border 0.3s;
+    font-family: 'Georgia', serif;
+    margin-bottom: 2px;
+    &::placeholder {
+      font-size: 15px;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(22, 119, 255, 0.2);
+    }
+  }
+}
+
+.update-movie-form {
+  grid-column:  1 / -1;
+  grid-row: 1 / -1;
+  width: 100%;
+
+  input {
+    min-width: 300px;
+  }
+  button {
+    margin: 8px auto -1px;
+    width: 460px;
+  }
+}
+
+.add-review-form {
+  font-size: 0;
+  grid-column:  2 / -1;
+  grid-row: 1 / -1;
+  justify-self: end;
+  transform: translateX(110%);
+  transition: transform 0.3s;
+  margin-bottom: -1px;
+
+  input {
+    min-width: 400px;
+  }
+
+  div {
+    display: flex;
+    gap: 4px;
+  }
+  button {
+    width: calc(50% - 2px);
+    margin-top: 10px;
+  }
+}
+

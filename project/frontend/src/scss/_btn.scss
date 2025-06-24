@@ -1,0 +1,16 @@
+.btn {
+  min-width: 120px;
+  padding: 10px;
+  font-family: 'Arial', serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: #ffffff;
+  background-color: rgba(23, 19, 19, 0.54);
+  border: 1px solid rgba(7, 3, 3, 0.96);
+  border-radius: 6px;
+  transition: background-color 0.3s, transform 0.3s;
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.13);
+  }
+}
+

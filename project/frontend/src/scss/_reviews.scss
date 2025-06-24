@@ -1,0 +1,46 @@
+.reviews {
+  grid-column: 2/-1;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: -20px;
+  transform: translateX(110%);
+  transition: transform .3s;
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Roboto', serif;
+    font-size: 15px;
+    background: #ededed;
+    color: #1c1c1c;
+    border-radius: 6px;
+    padding: 6px 12px;
+    &-icon {
+      border-radius: 50%;
+      width: 26px;
+      height: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #000000;
+      overflow: hidden;
+    }
+    &-author {
+      font-weight: 600;
+    }
+    &-rating {
+      width: 25px;
+      display: flex;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 600;
+      color: #A80101FF;
+    }
+    &-comment {
+      margin-left: 12px;
+      text-align: start;
+    }
+  }
+}
