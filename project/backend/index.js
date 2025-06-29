@@ -39,12 +39,10 @@ const todos = [
     }
 ]
 
-
 app.get('/todos', (req, res) => {
-    if (!todos || todos.length === 0) {
+    if (!todos) {
         return res.status(404).json({ error: 'ToDos not found' });
     }
-
     res.json(todos);
 })
 
@@ -54,9 +52,7 @@ app.get('/todos/:id', (req, res) => {
     if (!todo) {
         return res.status(404).json({ error: 'ToDo not found'})
     }
-
     res.json(todo);
-
 })
 
 app.post('/todos', (req, res) => {
@@ -72,8 +68,7 @@ app.post('/todos', (req, res) => {
         description: description,
         checked: false
     }
-
-    todos.push(newTodo);
+    todos.unshift(newTodo);
 
     res.status(201).json(newTodo);
 })
@@ -87,7 +82,7 @@ app.delete('/todos/:id', (req, res) => {
     }
     todos.splice(index, 1);
 
-    res.status(204).json();
+    res.status(204).end();
 })
 
 app.patch('/todos/:id', (req, res) => {
@@ -96,7 +91,7 @@ app.patch('/todos/:id', (req, res) => {
     const updatedTodo = todos.find(todo => todo.id === id);
 
     if (!updatedTodo) {
-        return res.status(404).res({ error: 'ToDo not found'})
+        return res.status(404).json({ error: 'ToDo not found'})
     }
     updatedTodo.checked = req.body.checked;
 
@@ -110,7 +105,7 @@ app.put('/todos/:id', (req, res) => {
     const index = todos.findIndex(todo => todo.id === id)
 
     if (index === -1) {
-        return res.status(404).res({ error: 'ToDo not found'})
+        return res.status(404).json({ error: 'ToDo not found'})
     }
 
     todos[index] = {
@@ -119,7 +114,6 @@ app.put('/todos/:id', (req, res) => {
         description,
         checked
     }
-
     res.json(todos[index]);
 })
 

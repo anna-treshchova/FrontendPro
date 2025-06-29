@@ -13,7 +13,8 @@ export async function handleTodoFormSubmit(e) {
         const todo = await addTodo(data);
 
         const li = createTodo(todo);
-        todoList.appendChild(li);
+        todoList.prepend(li);
+
         e.target.reset()
     } catch(err) {
         console.log(`${err.name}: ${err.message}`);
@@ -59,7 +60,6 @@ async function handleToggleClick(target) {
     try {
         const updatedTodo = await toggleTodo(id, target.checked);
         updatedTodo.checked ? li.classList.add('checked') : li.classList.remove('checked');
-
     } catch(err) {
         console.log(`${err.name}: ${err.message}`);
     }
